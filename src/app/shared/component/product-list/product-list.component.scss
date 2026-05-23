@@ -1,0 +1,110 @@
+.productCard{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 5px 10px #000;
+    transition: all .3s ease;
+    padding: 15px;
+}
+
+
+.productCard:hover{
+    transform: translateY(-5px);
+}
+
+
+.productCard img{
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+
+.productContent{
+    flex-grow: 1;
+}
+
+
+.productContent h2{
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+
+.productContent p{
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+
+.ratingBox{
+    background-color: green;
+    color: white;
+    width: 75px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-weight: bold;
+}
+
+
+.productActions{
+
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+}
+
+
+.productActions button{
+    width: 120px;
+    font-weight: bold;
+
+}
+
+.actualPrice{
+  text-decoration: line-through;
+  color: #878787;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.offerPrice{
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.discountText{
+  color: green;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+
+.productCard{
+  position: relative;
+}
+
+.discountBadge{
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: #00a000;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+}

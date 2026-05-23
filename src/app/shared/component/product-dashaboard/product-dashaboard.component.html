@@ -1,0 +1,18 @@
+<div class="container mt-4">
+  <!-- FORM -->
+  <div class="row">
+<div class="col-md-6 offset-md-3">
+      <app-product-form
+        (emitProduct)="onProductAdd($event)">
+      </app-product-form>
+    </div>
+  </div>
+  <!-- PRODUCyT LIST -->
+  <div class="row mt-4">
+    <div class="col-12">
+      <app-product-list
+        [productArr]="productArr">
+      </app-product-list>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div class="container mt-4">
+
+  <div class="row">
+
+    <div
+      class="col-md-4 mb-4"
+      *ngFor="let product of productArr">
+
+      <div class="productCard">
+
+        <img [src]="product.imgUrl" alt="product">
+
+        <div class="productContent">
+
+          <h2>{{product.pname}}</h2>
+
+          <p>₹ {{product.price}}</p>
+
+          <p class="offerPrice">
+            ₹ {{product.offerPrice}}
+          </p>
+
+          <div class="discountBadge">
+  {{product.discount}} OFF
+</div>
+
+          <p>{{product.category}}</p>
+
+          <p class="ratingBox">
+
+            {{product.rating}}
+
+            <mat-icon>star</mat-icon>
+
+          </p>
+
+        </div>
+
+        <div class="productActions">
+
+          <button
+          mat-raised-button
+            color="primary">
+            EDIT
+          </button>
+          <button
+            mat-raised-button
+            color="warn">
+            REMOVE
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
