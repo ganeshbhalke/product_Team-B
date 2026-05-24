@@ -11,6 +11,7 @@ import { SnackBarService } from '../../Service/snack-bar.service';
 export class ProductDashaboardComponent implements OnInit {
 
 
+editObj!:IProduct;
 
 
    constructor(
@@ -194,7 +195,7 @@ productArr : Array<IProduct>=[
     console.log(product);
         this._snackBar.openSnackBar(`The product With id ${product} Added Successfully!!!`)
 
-
+  
 
 
   //   localStorage.setItem(
@@ -215,9 +216,13 @@ ngOnInit(): void {
   // }
 
 }
-
- 
+onEdit(PostObj: IProduct){
+  this.editObj = PostObj;
+}
 
 }
+
  
+
+
 

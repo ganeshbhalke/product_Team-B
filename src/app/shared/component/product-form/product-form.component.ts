@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit,Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges, OnChanges } from '@angular/core';
 import { IProduct } from '../../modules/product';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
@@ -7,60 +7,82 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.scss']
 })
-export class ProductFormComponent implements OnInit {
+export class ProductFormComponent implements OnInit, OnChanges {
 
-   isInEditMode : boolean = false;
+  isInEditMode: boolean = false;
 
-@Output() emitProduct:EventEmitter<IProduct>= new EventEmitter<IProduct>()
+  @Output() emitProduct: EventEmitter<IProduct> = new EventEmitter<IProduct>()
+  @Input() editObj!: IProduct;
+
   productForm!: FormGroup;
+
   constructor(
-      private fb : FormBuilder
-  ) { 
-        this.createProductForm()
+    private fb: FormBuilder
+  ) {
+    this.createProductForm()
+  }
+
+  createProductForm() {
+
+    this.productForm = this.fb.group({
+
+      pname: [''],
+      price: [''],
+      category: [''],
+      rating: [''],
+      imgUrl: [''],
+      offerPrice: [''],
+      discount: [''],
+
+    })
 
   }
 
+  onProductAdd() {
 
- createProductForm(){
+    let productObj: IProduct = {
+      pname: this.productForm.value.pname,
+      price: this.productForm.value.price,
+      category: this.productForm.value.category,
+      rating: this.productForm.value.rating,
+      imgUrl: this.productForm.value.imgUrl,
+      productId: Date.now().toString(),
+      offerPrice: this.productForm.value.offerPrice,
+      discount: this.productForm.value.discount,
+    }
 
-   this.productForm = this.fb.group({
+    console.log(productObj)
 
-     pname : [''],
-     price : [''],
-     category : [''],
-     rating : [''],
-     imgUrl : [''],
-     offerPrice : [''],
-    discount : [''],
+    this.emitProduct.emit(productObj)
 
-   })
+    this.productForm.reset()
 
- }
-
- onProductAdd(){
-
-
-  let productObj : IProduct = {
-    pname: this.productForm.value.pname,
-    price: (this.productForm.value.price),
-    category: this.productForm.value.category,
-    rating: (this.productForm.value.rating),
-    imgUrl: this.productForm.value.imgUrl,
-    productId: Date.now().toString(),
-    offerPrice: this.productForm.value.offerPrice,
-    discount : this.productForm.value.discount,
   }
 
-  console.log(productObj)
+  ngOnChanges(changes: SimpleChanges): void {
 
-  this.emitProduct.emit(productObj)
+    if (changes['editObj']) {
 
-  this.productForm.reset()
+      this.isInEditMode = true
 
-}
+      this.productForm.patchValue({
 
+        pname: this.editObj.pname,
+        price: this.editObj.price,
+        category: this.editObj.category,
+        rating: this.editObj.rating,
+        imgUrl: this.editObj.imgUrl,
+        offerPrice: this.editObj.offerPrice,
+        discount: this.editObj.discount
+
+      })
+
+    }
+
+  }
 
   ngOnInit(): void {
+
   }
 
 }
