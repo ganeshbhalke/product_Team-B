@@ -220,6 +220,20 @@ onEdit(PostObj: IProduct){
   this.editObj = PostObj;
 }
 
+onRemoveProduct(productId: string){
+
+  let getIndex = this.productArr.findIndex(
+    prod => prod.productId === productId
+  );
+
+  this.productArr.splice(getIndex, 1);
+
+  this._snackBar.openSnackBar(
+    `The product with id ${productId} removed successfully!!!`
+  );
+
+}
+
 }
 
  
