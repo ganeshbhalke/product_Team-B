@@ -237,9 +237,9 @@ ngOnInit(): void {
   
 
 }
-// onEdit(PostObj: IProduct){
-//   this.editObj = PostObj;
-// }
+onEdit(PostObj: IProduct){
+  this.editObj = PostObj;
+}
 
 onRemoveProduct(productId: string){
 

@@ -16,10 +16,6 @@ export class ProductListComponent implements OnInit {
 
   @Input() productArr: Array<IProduct> = [];
 
-<<<<<<< HEAD
-=======
-  @Output() emitEditProduct:EventEmitter<IProduct> = new EventEmitter<IProduct>();
->>>>>>> 51d83c1 (resolved merge delete fun...)
 
 
   @Output() emitEditObj = new EventEmitter<IProduct>();
@@ -34,7 +30,6 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-<<<<<<< HEAD
 
 
   onEdit(product: IProduct) {
@@ -67,14 +62,5 @@ export class ProductListComponent implements OnInit {
     });
   
   }
-=======
-  onEdit(PostObj:IProduct){
-    this.emitEditProduct.emit(PostObj);
-  }
-
-  // onEdit(product: IProduct) {
-  //   this.emitEditProduct.emit(product);
-  // }
->>>>>>> 51d83c1 (resolved merge delete fun...)
 
 }
