@@ -79,5 +79,6 @@ export class ProductFormComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
+
   }
 }

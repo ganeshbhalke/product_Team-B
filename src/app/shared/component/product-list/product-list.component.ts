@@ -16,6 +16,9 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  onEdit(PostObj:IProduct){
+    this.emitEditObj.emit(PostObj);
+  }
 
   onEdit(product: IProduct) {
     this.emitEditProduct.emit(product);
