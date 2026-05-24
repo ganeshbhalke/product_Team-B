@@ -3,7 +3,9 @@
   <div class="row">
 <div class="col-md-6 offset-md-3">
       <app-product-form
-        (emitProduct)="onProductAdd($event)">
+          [editProductObj]="editProductObj"
+        (emitProduct)="onProductAdd($event)"
+         (emitUpdateProduct)="onProductUpdate($event)">
       </app-product-form>
     </div>
   </div>
@@ -11,7 +13,8 @@
   <div class="row mt-4">
     <div class="col-12">
       <app-product-list
-        [productArr]="productArr">
+        [productArr]="productArr"
+        (emitEditProduct) ="onEditProduct($event)">
       </app-product-list>
     </div>
   </div>

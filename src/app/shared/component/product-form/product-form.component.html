@@ -104,8 +104,8 @@
   [disabled]="productForm.invalid"
     mat-raised-button color="warn" class="w-100"
     *ngIf="isInEditMode"
+    (click)="onUpdateProduct()"
     >
-<!-- (click)="onUpdate()" -->
     Update Product
 
   </button>

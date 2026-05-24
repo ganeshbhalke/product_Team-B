@@ -12,6 +12,8 @@ export class ProductDashaboardComponent implements OnInit {
 
 
 
+editProductObj!: IProduct;
+
 
    constructor(
   private _snackBar:SnackBarService
@@ -192,7 +194,7 @@ productArr : Array<IProduct>=[
 
     this.productArr.push(product)
     console.log(product);
-        this._snackBar.openSnackBar(`The product With id ${product} Added Successfully!!!`)
+        this._snackBar.openSnackBar(`The product With id ${product.productId} Added Successfully!!!`)
 
 
 
@@ -204,6 +206,24 @@ productArr : Array<IProduct>=[
     
 
   }
+
+
+  onEditProduct(product: IProduct) {
+    this.editProductObj = product;
+  }
+
+ onProductUpdate(product: IProduct) {
+
+  let index = this.productArr.findIndex(
+    prod => prod.productId === product.productId
+  );
+
+  this.productArr[index] = product;
+
+  this._snackBar.openSnackBar(
+    `The product With id ${product.productId} Updated Successfully!!!`
+  );
+}
 ngOnInit(): void {
 
   // let data = localStorage.getItem('product');
@@ -213,6 +233,7 @@ ngOnInit(): void {
   //   this.productArr = JSON.parse(data);
 
   // }
+  
 
 }
 
