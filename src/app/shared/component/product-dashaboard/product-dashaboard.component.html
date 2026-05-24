@@ -13,8 +13,9 @@
   <div class="row mt-4">
     <div class="col-12">
       <app-product-list
-        [productArr]="productArr"
-        (emitEditProduct) ="onEditProduct($event)">
+      [productArr]="productArr"
+      (emitEditObj)="onEdit($event)"
+      (emitRemoveProduct)="onRemoveProduct($event)">
       </app-product-list>
     </div>
   </div>

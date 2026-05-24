@@ -12,12 +12,20 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+
+
+import { ConfirmDialogComponent } from './shared/component/confirm-dialog/confirm-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     ProductDashaboardComponent,
     ProductFormComponent,
-    ProductListComponent,
+    ConfirmDialogComponent,
+    ProductListComponent
     
   ],
   imports: [
@@ -28,6 +36,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSnackBarModule,
     FormsModule,
     MatIconModule,
+    MatIconModule ,
+    MatDialogModule,
     ReactiveFormsModule
     
 
