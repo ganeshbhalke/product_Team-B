@@ -1,4 +1,4 @@
-import { Component, OnInit ,Input} from '@angular/core';
+import { Component, OnInit ,Input, EventEmitter, Output} from '@angular/core';
 import { IProduct } from '../../modules/product';
 
 @Component({
@@ -8,12 +8,15 @@ import { IProduct } from '../../modules/product';
 })
 export class ProductListComponent implements OnInit {
 
-
+@Output() emitEditObj=new EventEmitter<IProduct>();
      @Input() productArr: Array<IProduct> = [];
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+  onEdit(PostObj:IProduct){
+    this.emitEditObj.emit(PostObj);
   }
 
 }
