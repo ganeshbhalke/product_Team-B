@@ -13,8 +13,7 @@ export class ProductFormComponent implements OnInit, OnChanges {
 
   @Input() editProductObj!: IProduct;
 
-  @Output() emitProduct: EventEmitter<IProduct> =
-    new EventEmitter<IProduct>();
+  @Output() emitProduct: EventEmitter<IProduct> = new EventEmitter<IProduct>();
 
   @Output() emitUpdateProduct: EventEmitter<IProduct> =
     new EventEmitter<IProduct>();
